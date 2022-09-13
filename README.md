@@ -1,4 +1,4 @@
-# Getting started with DRIVEN PASS
+# Getting started with REPO PROVAS
 
 ## `Backend settings:`
 #
@@ -19,8 +19,6 @@
 
 ### JWT_EXPIRATION=expiration time
  - Number in miliseconds
- 
-### MODE=DEV
 
 #
 ### Run
