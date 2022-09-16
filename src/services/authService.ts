@@ -1,8 +1,6 @@
+import loadEnv from '../../src/config/envs';
 import bcrypt from 'bcrypt';
-import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
-
-dotenv.config();
 
 import * as service from './userService';
 import { CreateUserType } from '../types/userType';
@@ -39,7 +37,7 @@ function getEncryptedPassword(password: string) {
   return bcrypt.hashSync(password, SALTROUNDS);
 }
 
-function validPasswordOrFail(password: string, hashedPassword: string, message: string) {
+export function validPasswordOrFail(password: string, hashedPassword: string, message: string) {
   const match = bcrypt.compareSync(password, hashedPassword);
   if (!match) {
     throw throwError.notFound(message);

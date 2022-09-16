@@ -9,8 +9,13 @@
     "dev": "nodemon src/server.ts",
     "prisma:dev": "prisma migrate dev",
     "prisma:deploy": "prisma migrate deploy",
-    "prisma:test": "dotenv -e .env.test npm run prisma:dev",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -i"
+    "prisma:test": "cross-env dotenv -e .env.test npm run prisma:deploy",
+    "delete-and-seed": "prisma db seed",
+    "delete-and-seed:test": "cross-env dotenv -e .env.test prisma db seed",
+    "test": "npm run prisma:test && npm run delete-and-seed:test && cross-env dotenv -e .env.test jest -i"
+  },
+  "prisma" :{
+    "seed": "ts-node prisma/seed.ts"
   },
   "author": "Simone Alcala",
   "license": "ISC",
