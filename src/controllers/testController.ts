@@ -10,7 +10,11 @@ export async function insert(req: Request, res: Response) {
 }
 
 export async function getByDisciplineId(req: Request, res: Response) {
-  const { disciplineId } = req.params;
-  const result = await service.getByDisciplineId(disciplineId);
+  const result = await service.getTestsByDiscipline();
+  res.status(200).send(result);
+}
+
+export async function getByTeacherId(req: Request, res: Response) {
+  const result = await service.getTestsByTeacher();
   res.status(200).send(result);
 }

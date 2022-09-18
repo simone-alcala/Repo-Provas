@@ -1,12 +1,12 @@
-import { Teacher } from '@prisma/client';
+import { Category } from '@prisma/client';
 import * as throwError from '../utils/errorUtils';
-import * as repository from '../repositories/teacherRepository';
+import * as repository from '../repositories/categoryRepository';
 
 
 export async function getByIdOrFail (id: number) {
   const result = await repository.findById(id);
   if (!result) {
-    throw throwError.notFound('Teacher ID not found');
+    throw throwError.notFound('Category ID not found');
   }
   return result;
 }

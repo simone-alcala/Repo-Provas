@@ -9,7 +9,7 @@ export default async function validateToken(req: Request, res: Response, next: N
     throw unauthorized(errorMessage);
   }
   const tokenBearer = token.split('Bearer ');
-  if (tokenBearer[0] !== 'Bearer ') {
+  if (tokenBearer[0] !== '') {    
     throw unauthorized(errorMessage);
   }
   isValidToken(tokenBearer[1], errorMessage);

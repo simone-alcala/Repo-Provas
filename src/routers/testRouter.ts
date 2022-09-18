@@ -7,8 +7,8 @@ import * as controller from '../controllers/testController';
 
 const testRouter = Router();
 
-testRouter.use(validateToken);
-testRouter.post('/terms', validateSchema(testSchema), controller.insert);
-testRouter.get('/terms/:disciplineId',controller.getByDisciplineId);
+testRouter.post('/tests', validateToken, validateSchema(testSchema), controller.insert);
+testRouter.get('/tests/discipline', validateToken, controller.getByDisciplineId);
+testRouter.get('/tests/teacher', validateToken, controller.getByTeacherId);
 
 export default testRouter;
