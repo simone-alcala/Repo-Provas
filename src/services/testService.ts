@@ -1,51 +1,9 @@
-import { InsertTestType, CreateTestType } from './../types/testType';
+import { InsertTestType, CreateTestType, TestsByDiscipleType, TestsByTeachersType } from './../types/testType';
 import * as repository from '../repositories/testRepository';
 import * as teacherService from '../services/teacherService';
 import * as disciplineService from '../services/disciplineService';
 import * as categoryService from '../services/categoryService';
 import * as teacherDisciplineService from '../services/teacherDisciplineService';
-
-type TestsByDiscipleType = {
-  id: number,
-  number: number,
-  disciplines: DiscipleneType[]
-}
-
-type DiscipleneType = {
-  id: number,
-  name: string,
-  categories: CategoryTypeWithTeacher[]
-}
-
-type CategoryTypeWithTeacher = {
-  category: string,
-  tests: TestTypeWithTeacher[]
-}
-
-type TestTypeWithTeacher = {
-  id: number,
-  name: string,
-  pdfUrl: string,
-  teacher: string
-}
-
-type TestsByTeachersType = {
-  id: number,
-  name: string,
-  categories: CategoryTypeWithDiscipline[]
-}
-
-type CategoryTypeWithDiscipline = {
-  category: string,
-  tests: TestTypeWithDiscipline[]
-}
-
-type TestTypeWithDiscipline = {
-  id: number,
-  name: string,
-  pdfUrl: string,
-  discipline: string
-}
 
 export async function insert(testData: CreateTestType) {
   

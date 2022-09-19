@@ -30,7 +30,7 @@ describe('Authentication Suite Tests', () => {
   
   it('Should not sign up and return status code 409', async () => {
     const user = factory.getNewUser();
-    factory.insert(user);
+    await factory.insert(user);
     const response = await agent.post('/sign-up').send(user);
     const userCreated = await factory.getUserByEmail(user.email);
     expect(response.status).toBe(409);
