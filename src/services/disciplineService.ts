@@ -10,3 +10,7 @@ export async function getByIdOrFail (id: number) {
   }
   return result;
 }
+
+export async function findAll(){
+  return await repository.findAll();
+}

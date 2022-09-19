@@ -11,3 +11,13 @@ export async function findAllWithTerms() {
     }
   });  
 }
+
+export async function findAll() {
+  return prisma.discipline.findMany({
+    select: {
+      id: true,
+      name: true,
+    }
+  });  
+}
+

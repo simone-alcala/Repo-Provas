@@ -89,7 +89,7 @@ export async function getTestsByDiscipline() {
             id: test.id,
             name: test.name,
             pdfUrl: test.pdfUrl,
-            teacher: test.teacherDiscipline.teacher.name
+            teacher: `${test.teacherDiscipline.teacher.name}`
           };
           if (index === -1) {
             result[indexTerm].disciplines[indexDiscipline].categories.push({
@@ -126,7 +126,7 @@ export async function getTestsByTeacher() {
           id: test.id,
           name: test.name,
           pdfUrl: test.pdfUrl,
-          discipline: test.teacherDiscipline.discipline.name
+          discipline: `(${test.teacherDiscipline.discipline.name})`
         }
         if (index === -1) {
           result[indexTeacher].categories.push({
